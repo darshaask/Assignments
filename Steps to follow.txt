@@ -1,0 +1,42 @@
+How to run project:
+
+
+Step 1: Setup Project Environment:
+Make sure you have Python installed on your system.
+
+Install Flask and other required dependencies. 
+You can do this using pip:
+command used:
+pip install Flask Flask-SQLAlchemy Celery pika
+
+
+
+Step 2: Configure RabbitMQ:
+Install RabbitMQ on your system if you haven't already.
+Start the RabbitMQ server.
+
+
+Step 3: Define Flask App and Celery Worker:
+Create a celeryconfig.py file to configure Celery. 
+This file should contain settings like broker URL, result backend, etc.
+Create your Flask application in app.py. Define your SQLAlchemy models and API routes here.
+Define your Celery tasks in a separate tasks.py file.
+
+
+Step 4: Start Celery Worker:
+Open a terminal and navigate to your project directory.
+Start the Celery worker by running the following command:
+celery -A tasks worker --loglevel=info
+
+
+Step 5: Run Flask App:
+Open another terminal window/tab and navigate to your project directory.
+Run your Flask application using the following command:
+python app.py
+
+
+Step 6: Test API Endpoints
+Use a tool like Postman to send requests to your Flask API endpoints (/api/items).
+
+
+Verify that the requests are processed correctly and that the Celery tasks are executed as expected.
